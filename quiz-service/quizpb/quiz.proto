@@ -1,0 +1,72 @@
+syntax = "proto3";
+
+package quizpb;
+option go_package = "github.com/Cprime50/quiz";
+
+
+
+message Quiz {
+    int64 id = 1;
+    string japanese = 2;
+    string pronounce = 3;
+    // find the correct way for array in grpc 
+    repeated string options = 4;
+    string created_at = 5;
+    string updated_at = 6;
+    string deleted_at = 7;
+}
+
+message Empty {
+
+}
+
+message LeaderBoard {
+    string username = 1;
+    int64 score = 2;
+}
+
+message GetScoreRequest {
+    string userId = 1;
+}
+
+message GetScoreResponse {
+    string userId = 1;
+    int64 score = 2;
+}
+
+message GetQuizRequest {
+    string userId = 1;
+}
+
+message GetQuizResponse {
+    repeated Quiz quizes = 1;
+}
+
+message GetResultRequest {
+    repeated Quiz quizes = 1;
+    repeated string answer = 2;
+}
+
+message GetResultResponse {
+    int64 score = 1;
+    bool next_allowed = 2;
+}
+
+message CreateUpdateQuizRequest{
+    repeated Quiz quizes = 1;
+}
+
+message DeleteQuizRequest{
+    repeated int64 quiz_id = 1;
+}
+
+
+service QuizService {
+    rpc GetQuiz(GetQuizRequest) returns (GetQuizResponse);
+    rpc GetLeaderBoard(Empty) returns (stream LeaderBoard);
+    rpc GetScore(GetScoreRequest) returns (GetScoreResponse);
+    rpc GetResult(GetResultRequest) returns (GetResultResponse);
+    rpc CreateUpdateQuiz(CreateUpdateQuizRequest) returns (Empty);
+    rpc DeleteQuiz(DeleteQuizRequest) returns (Empty);
+    rpc GetAllQuizzes(Empty) returns (stream Quiz);
+}

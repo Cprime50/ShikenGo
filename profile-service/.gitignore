@@ -1,0 +1,11 @@
+.env
+private_key.json
+public.key
+cert/*.key
+cert/*.pem
+src/*.db
+src/*.db-shm
+src/*.db-wal
+user.db
+user.db-shm
+user.db-wal

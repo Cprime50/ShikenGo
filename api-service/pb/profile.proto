@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+package profilepb;
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/Cprime50/profilepb";
+
+
+message Profile {
+  string id = 1;
+  string email = 2;
+  string username = 3;
+  string bio = 4;
+  string avatar = 5;
+  int64 score = 6;
+  google.protobuf.Timestamp created_at = 7;
+  google.protobuf.Timestamp updated_at = 8;
+  string userId = 9;
+}
+
+enum Operation {
+  CREATE = 0;
+  UPDATE = 1;
+}
+
+message CreateUpdateProfileRequest {
+  Operation operation = 1;
+  Profile profile = 2;
+}
+
+message GetProfileRequest {
+  string userId = 1;
+}
+
+message Empty {
+
+}
+
+message DeleteProfileRequest {
+  string userId = 1;
+}
+
+message UpdateScoreRequest {
+  string userId = 1;
+  int64 score = 2;
+}
+
+service ProfileService {
+  rpc CreateUpdateProfile(CreateUpdateProfileRequest) returns (Profile);
+  rpc GetProfile(GetProfileRequest) returns (Profile);
+  rpc GetAllProfiles(Empty) returns (stream Profile);
+  rpc DeleteProfile(DeleteProfileRequest) returns (Empty);
+  rpc UpdateScore(UpdateScoreRequest) returns (Empty);
+}

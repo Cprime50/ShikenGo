@@ -1,0 +1,8 @@
+.env
+private_key.json
+cert/*.key
+cert/*.pem
+public.key
+quiz.db
+quiz.db-shm
+quiz.db-wal
