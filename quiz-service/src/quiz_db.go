@@ -16,3 +16,16 @@ var (
 func getQuizByUserId(userId string) (*pb.Quiz, error) {
 
 }
+
+func createQuiz(q *pb.Quiz) error {
+
+}
+
+func updateQuiz(q *pb.Quiz) error {
+
+}
+
+func selectLeaderBoard() ([]*pb.LeaderBoard, error){
+
+}
+

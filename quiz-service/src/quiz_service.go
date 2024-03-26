@@ -7,3 +7,36 @@ import (
 type Server struct {
 	pb.UnimplementedQuizServiceServer
 }
+
+
+func GetQuiz() {
+
+}
+
+func GetLeaderBoard() {
+
+}
+
+func GetScore() {
+
+}
+
+func GetResult() {
+
+}
+
+func CreateQuiz() {
+
+}
+
+func UpdateQuiz() {
+
+}
+
+func DeleteQuiz() {
+
+}
+
+func GetAllQuizzes() {
+	
+}

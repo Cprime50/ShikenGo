@@ -1,6 +1,7 @@
 .env
 firebase-config.js
 private_key.json
+index.html
 public.key
 cert/*.key
 cert/*.pem

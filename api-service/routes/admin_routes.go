@@ -24,7 +24,7 @@ func RegisterAdminRoutes(r *gin.Engine, client *auth.Client) {
 		})
 	}
 
-}
+} 
 
 type EmailInput struct {
 	Email string `json:"email"`
